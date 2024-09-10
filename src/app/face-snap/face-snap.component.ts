@@ -18,7 +18,11 @@ export class FaceSnapComponent implements OnInit {
     this.title = 'Archibald';
     this.description = 'Mon Meilleur ami depui toujours! ';
     this.createdAt = new Date();
-    this.snaps = 0;
+    this.snaps = 5;
     this.imageUrl = 'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg'
+  }
+
+  onAddSnaps(): void {
+    this.snaps ++ ;
   }
 }
