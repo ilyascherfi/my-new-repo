@@ -39,7 +39,7 @@ export class FaceSnapComponent implements OnInit {
 
   unSnap(): void {
     this.snaped = false;
-    this.faceSnap.removeSnap();
+    this.faceSnapService.unsnapFaceSnapById(this.faceSnap.id);
     this.buttonContent = "Oh snap"
   }
 }
