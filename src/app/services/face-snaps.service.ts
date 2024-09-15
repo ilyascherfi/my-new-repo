@@ -20,7 +20,7 @@ export class FaceSnapsService {
       "https://images.unsplash.com/photo-1682786308235-d3e74451a32c?q=80&w=1856&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       new Date(),
       8
-    ),
+    ).withLocation('à la montagne'),
     new FaceSnap(
       "Une meuf ",
       "Dans une bibliothèque avec une apple watch",
