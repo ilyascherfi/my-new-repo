@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
         "Mon meilleur ami depuis toujours!",
         "https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg",
         new Date(),
-        10
+        239
       ),
       new FaceSnap(
         "John Sourdough",
