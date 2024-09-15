@@ -13,14 +13,13 @@ import { FaceSnap } from './models/face-snap';
 })
 export class AppComponent implements OnInit {
   mySnap!: FaceSnap;
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.mySnap = new FaceSnap(
-      'Archibald',
-      'Mon meilleur ami depuis tout petit !',
-      'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg',
+      "Archibald",
+      "Mon meilleur ami depuis toujours!",
+      "https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg",
       new Date(),
-      0
-    );
+      10
+    )
   }
 }

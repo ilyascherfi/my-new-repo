@@ -4,4 +4,12 @@ export class FaceSnap {
               public imageUrl: string,
               public createdAt: Date,
               public snaps: number) {}
+
+  addSnap(): void {
+    this.snaps++;
+  }
+
+  removeSnap(): void {
+    this.snaps--;
+  }
 }

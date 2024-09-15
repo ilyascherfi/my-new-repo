@@ -11,34 +11,31 @@ import { FaceSnap } from '../models/face-snap';
 export class FaceSnapComponent implements OnInit {
   @Input() faceSnap!: FaceSnap;
 
-  title!: string;
-  description!: string;
-  createdAt!: Date;
-  snaps!: number;
-  imageUrl!: string;
   snaped!: boolean;
   buttonContent!: string;
 
   ngOnInit(): void {
-    this.title = 'Archibald';
-    this.description = 'Mon Meilleur ami depui toujours! ';
-    this.createdAt = new Date();
-    this.snaps = 5;
     this.snaped = false;
     this.buttonContent = "Oh snap"
-    this.imageUrl = 'https://cdn.pixabay.com/photo/2015/05/31/16/03/teddy-bear-792273_1280.jpg'
   }
 
   onAddSnaps(): void {
     if(!this.snaped) {
-      this.snaped = true;
-      this.snaps += 1;
-      this.buttonContent = "Oups Unsnap"
+      this.snap();
     }else {
-      this.snaped = false;
-      this.snaps -= 1;
-      this.buttonContent = "Oh snap"
+      this.unSnap();
     }
+  }
 
+  snap(): void {
+    this.snaped = true;
+    this.faceSnap.addSnap();
+    this.buttonContent = "Oups Unsnap"
+  }
+
+  unSnap(): void {
+    this.snaped = false;
+    this.faceSnap.removeSnap();
+    this.buttonContent = "Oh snap"
   }
 }
