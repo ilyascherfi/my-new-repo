@@ -33,13 +33,13 @@ export class FaceSnapComponent implements OnInit {
 
   snap(): void {
     this.snaped = true;
-    this.faceSnapService.snapFaceSnapById(this.faceSnap.id)
+    this.faceSnapService.snapFaceSnapById(this.faceSnap.id, "snap")
     this.buttonContent = "Oups Unsnap"
   }
 
   unSnap(): void {
     this.snaped = false;
-    this.faceSnapService.unsnapFaceSnapById(this.faceSnap.id);
+    this.faceSnapService.snapFaceSnapById(this.faceSnap.id, "unsnap");
     this.buttonContent = "Oh snap"
   }
 }
