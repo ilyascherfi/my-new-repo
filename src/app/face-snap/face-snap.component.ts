@@ -1,45 +1,23 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FaceSnap } from '../models/face-snap';
-import { NgStyle, NgClass, UpperCasePipe, LowerCasePipe, TitleCasePipe, DatePipe} from '@angular/common';
-import { FaceSnapsService } from '../services/face-snaps.service';
+import { TitleCasePipe} from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-face-snap',
   standalone: true,
   imports: [
-    NgStyle, NgClass, UpperCasePipe, LowerCasePipe, TitleCasePipe, DatePipe
+     TitleCasePipe
   ],
   templateUrl: './face-snap.component.html',
   styleUrl: './face-snap.component.scss'
 })
-export class FaceSnapComponent implements OnInit {
+export class FaceSnapComponent{
   @Input() faceSnap!: FaceSnap;
-  constructor(private faceSnapService: FaceSnapsService) {}
-  snaped!: boolean;
-  buttonContent!: string;
 
-  ngOnInit(): void {
-    this.snaped = false;
-    this.buttonContent = "Oh snap"
+  constructor(private router: Router) {
   }
-
-  onAddSnaps(): void {
-    if(!this.snaped) {
-      this.snap();
-    }else {
-      this.unSnap();
-    }
-  }
-
-  snap(): void {
-    this.snaped = true;
-    this.faceSnapService.snapFaceSnapById(this.faceSnap.id, "snap")
-    this.buttonContent = "Oups Unsnap"
-  }
-
-  unSnap(): void {
-    this.snaped = false;
-    this.faceSnapService.snapFaceSnapById(this.faceSnap.id, "unsnap");
-    this.buttonContent = "Oh snap"
+  onView(): void {
+    this.router.navigateByUrl(`facesnaps/${this.faceSnap.id}`)
   }
 }

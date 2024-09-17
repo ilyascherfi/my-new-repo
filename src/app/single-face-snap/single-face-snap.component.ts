@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FaceSnap } from '../models/face-snap';
 import { NgStyle, NgClass, UpperCasePipe, LowerCasePipe, TitleCasePipe, DatePipe} from '@angular/common';
 import { FaceSnapsService } from '../services/face-snaps.service';
@@ -23,10 +23,8 @@ export class SingleFaceSnapComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.snaped = false;
-    this.buttonContent = "Oh snap"
-    const faceSnapId = this.route.snapshot.params['id'];
-    this.faceSnap = this.faceSnapService.getFaceSnapById(faceSnapId)
+    this.prepareInterface();
+    this.getFaceSnap;
   }
 
   onAddSnaps(): void {
@@ -47,5 +45,15 @@ export class SingleFaceSnapComponent implements OnInit {
     this.snaped = false;
     this.faceSnapService.snapFaceSnapById(this.faceSnap.id, "unsnap");
     this.buttonContent = "Oh snap"
+  }
+
+  private prepareInterface() {
+    this.snaped = false;
+    this.buttonContent = "Oh snap"
+  }
+
+  private getFaceSnap() {
+    const faceSnapId = this.route.snapshot.params['id'];
+    this.faceSnap = this.faceSnapService.getFaceSnapById(faceSnapId)
   }
 }
